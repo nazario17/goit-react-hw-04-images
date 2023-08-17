@@ -8,7 +8,7 @@ const Modal = ({ onClose, largeImageURL }) => {
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, []);
+  }, [handleKeyDown]);
 
   const handleKeyDown = event => {
     if (event.code === 'Escape') {
