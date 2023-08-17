@@ -3,12 +3,6 @@ import PropTypes from 'prop-types';
 import css from './Modal.module.css';
 
 const Modal = ({ onClose, largeImageURL }) => {
-  useEffect(() => {
-    window.addEventListener('keydown', handleKeyDown);
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-    };
-  }, [handleKeyDown]);
 
   const handleKeyDown = event => {
     if (event.code === 'Escape') {
@@ -21,6 +15,13 @@ const Modal = ({ onClose, largeImageURL }) => {
       onClose();
     }
   };
+
+  useEffect(() => {
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [handleKeyDown]);
 
   return (
     <div className={css.overlay} onClick={handleOverlayClick}>
